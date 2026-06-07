@@ -37,17 +37,16 @@
 
     <script defer type="application/ld+json">
     {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "Article",
         "headline": {{ .Title }},
         "author": {
-        "@type": "Person",
-        "name": "{{ .Site.Params.github }}"
+            "@id": "{{ site.Params.person.url }}#person"
         },
         "datePublished": "{{ dateFormat "2006-01-02" .Date }}",
         "description": {{ .Description }},
         "wordCount": {{ .WordCount }},
-        "mainEntityOfPage": "True",
+        "mainEntityOfPage": "{{ .Permalink }}",
         "dateModified": "{{ dateFormat "2006-01-02" .Lastmod }}",
         "image": {
         "@type": "imageObject",
